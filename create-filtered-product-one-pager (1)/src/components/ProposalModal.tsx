@@ -1,6 +1,7 @@
 import React from 'react';
 import { SelectionItem } from '../types';
 import { X, Printer } from 'lucide-react';
+import { resolveImage } from '../utils/image';
 
 interface ProposalModalProps {
   isOpen: boolean;
@@ -65,7 +66,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
             {selection.map((item, idx) => (
               <div key={item.product.code} className="flex gap-4 border border-slate-200 rounded-xl p-3 break-inside-avoid">
                 <img
-                  src={item.product.image}
+                  src={resolveImage(item.product.image, 500)}
                   alt={item.product.name}
                   referrerPolicy="no-referrer"
                   className="w-40 aspect-4/3 object-cover rounded-lg border border-slate-100 shrink-0"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
 import { ImageOff } from 'lucide-react';
+import { resolveImage } from '../utils/image';
 
 interface ProductImageProps {
   product: Product;
@@ -15,7 +16,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({ product, className =
     <div className={`relative overflow-hidden bg-slate-100 ${className}`}>
       {!failed ? (
         <img
-          src={product.image}
+          src={resolveImage(product.image)}
           alt={`${product.name} (${product.code})`}
           loading="lazy"
           referrerPolicy="no-referrer"
